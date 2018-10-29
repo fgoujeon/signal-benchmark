@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.2)
+file(GLOB_RECURSE SOURCE_FILES *.cc)
+add_library(sigc++ STATIC ${SOURCE_FILES})
+target_include_directories(sigc++ PUBLIC src)
+target_include_directories(sigc++ PUBLIC config)
+set_property(TARGET sigc++ PROPERTY CXX_STANDARD 17)

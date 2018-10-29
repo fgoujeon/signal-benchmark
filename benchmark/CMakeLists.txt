@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.2)
+file(GLOB SOURCE_FILES src/*.*)
+add_executable(benchmark ${SOURCE_FILES})
+target_link_libraries(benchmark PRIVATE fgl_signal sigc++)
+set_property(TARGET benchmark PROPERTY CXX_STANDARD 17)
