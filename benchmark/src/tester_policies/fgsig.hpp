@@ -1,20 +1,20 @@
-#ifndef TESTER_POLICIES_FGL_HPP
-#define TESTER_POLICIES_FGL_HPP
+#ifndef TESTER_POLICIES_FGSIG_HPP
+#define TESTER_POLICIES_FGSIG_HPP
 
-#include <fgl/signal.hpp>
+#include <fgsig.hpp>
 
-struct fgl_tester_policy
+struct fgsig_tester_policy
 {
     struct event_sender
     {
         public:
-            using signal = fgl::signal<void(int)>;
+            using signal = fgsig::signal<void(int)>;
 
         public:
             template<class Slot>
             auto connect(Slot&& s)
             {
-                return signal_.connect(std::forward<Slot>(s));
+                return fgsig::connect(signal_, std::forward<Slot>(s));
             }
 
             void send(const int i)
@@ -57,7 +57,7 @@ struct fgl_tester_policy
 
     static const char* get_name()
     {
-        return "fgl::signal 0.1.0";
+        return "fgsig 0.2.0";
     }
 };
 

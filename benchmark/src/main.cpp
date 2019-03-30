@@ -1,5 +1,5 @@
 #include "tester_policies/c_style.hpp"
-#include "tester_policies/fgl.hpp"
+#include "tester_policies/fgsig.hpp"
 #include "tester_policies/sigc.hpp"
 #include <chrono>
 #include <vector>
@@ -49,7 +49,7 @@ void test_all(const int receiver_count, const int event_count)
 {
     std::cout << receiver_count << " receivers, " << event_count << " events:\n";
     test<c_style_tester_policy>(receiver_count, event_count);
-    test<fgl_tester_policy>(receiver_count, event_count);
+    test<fgsig_tester_policy>(receiver_count, event_count);
     test<sigc_tester_policy>(receiver_count, event_count);
     std::cout << '\n';
 }
